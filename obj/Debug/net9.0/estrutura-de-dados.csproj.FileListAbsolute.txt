@@ -1,0 +1,15 @@
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.GeneratedMSBuildEditorConfig.editorconfig
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.AssemblyInfoInputs.cache
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.AssemblyInfo.cs
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.csproj.CoreCompileInputs.cache
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.sourcelink.json
+/home/nava/Documents/repo/estrutura-de-dados/bin/Debug/net9.0/estrutura-de-dados
+/home/nava/Documents/repo/estrutura-de-dados/bin/Debug/net9.0/estrutura-de-dados.deps.json
+/home/nava/Documents/repo/estrutura-de-dados/bin/Debug/net9.0/estrutura-de-dados.runtimeconfig.json
+/home/nava/Documents/repo/estrutura-de-dados/bin/Debug/net9.0/estrutura-de-dados.dll
+/home/nava/Documents/repo/estrutura-de-dados/bin/Debug/net9.0/estrutura-de-dados.pdb
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.dll
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/refint/estrutura-de-dados.dll
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.pdb
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/estrutura-de-dados.genruntimeconfig.cache
+/home/nava/Documents/repo/estrutura-de-dados/obj/Debug/net9.0/ref/estrutura-de-dados.dll
