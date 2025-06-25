@@ -15,11 +15,14 @@ public class LinkedList
     public Node? tail;
     public int lenght = 0;
 
+    /// <summary>
+    /// Exibir os elementos da lista no terminal
+    /// </summary>
     public void PrintList()
     {
-        System.Console.WriteLine("### Exibindo valores da LinkedList ###");
+        System.Console.WriteLine("[PRINTLIST] EXIBINDO ELEMENTOS DA LISTA");
 
-        Node node_aux = this.head;
+        Node? node_aux = this.head;
         int lenght_aux = 0;
 
         while (node_aux is not null)
@@ -27,12 +30,17 @@ public class LinkedList
             System.Console.WriteLine($"[{lenght_aux++}] : {node_aux.Value}");
             node_aux = node_aux.Next;
         }
-        System.Console.WriteLine($"Total de elementos {this.lenght}");
+        System.Console.WriteLine($"[PRINTLIST] TOTAL DE ELEMENTOS {this.lenght}");
     }
 
+    /// <summary>
+    /// Acrescentar elemento na última posição da lista
+    /// </summary>
+    /// <param name="value">Tipo numérico inteiro</param>
+    /// <returns>Tipo booleano se execução concluída com sucesso</returns>
     public bool Append(int value)
     {
-        System.Console.WriteLine($"### Executando Append do valor {value} ###");
+        System.Console.WriteLine($"[APPEND] ADICIONANDO ELEMENTO A LISTA [{this.lenght}] : {value}");
         Node new_node = new(value);
 
         if (this.head is null)
@@ -47,19 +55,125 @@ public class LinkedList
         }
 
         this.lenght++;
-        System.Console.WriteLine($"Total de elementos {this.lenght}");
+        System.Console.WriteLine($"[APPEND] TOTAL DE ELEMENTOS {this.lenght}");
         return true;
     }
 
-    public bool Pop()
+    /// <summary>
+    /// Remover o último elemento da lista
+    /// </summary>
+    /// <returns>Nodo removido da lista</returns>
+    public Node? Pop()
     {
-        
+        Node? pre_node = this.head;
+        Node? pop_node = null;
+
+        if (this.head is null)
+        {
+            System.Console.WriteLine("[POP] LISTA VAZIA");
+            return null;
+        }
+        else if (this.head.Next is null)
+        {
+            pop_node = this.head;
+            this.head = null;
+            this.tail = null;
+        }
+        else
+        {
+            while (pre_node?.Next is not null)
+            {
+                if (pre_node.Next.Next is null)
+                {
+                    pop_node = pre_node.Next;
+                    this.tail = pre_node;
+                    this.tail.Next = null;
+                    break;
+                }
+
+                pre_node = pre_node.Next;
+            }
+        }
+
+        this.lenght--;
+        System.Console.WriteLine($"[POP] REMOVENDO ELEMENTO [{this.lenght}] : {pop_node?.Value}");
+        return pop_node;
+    }
+
+    /// <summary>
+    /// Adicionar elemento na primeira posição da lista
+    /// </summary>
+    /// <param name="value">Tipo numérico inteiro</param>
+    /// <returns>Tipo booleano se execução concluída com sucesso</returns>
+    public bool Prepend(int value)
+    {
+        Node new_node = new(value);
+        new_node.Next = this.head;
+        this.head = new_node;
+
+        if (this.lenght == 0)
+            this.tail = new_node;
+
+        System.Console.WriteLine($"[PREPEND] ADICIONANDO ELEMENTO [0] : {value}");
+        this.lenght++;
+        return true;
+    }
+
+    /// <summary>
+    /// Remover o primeiro elemento da lista
+    /// </summary>
+    /// <returns>Nodo removido da lista</returns>
+    public Node? PopFirst()
+    {
+        if (this.lenght == 0)
+        {
+            System.Console.WriteLine("[POPFIRST] LISTA VAZIA");
+            return null;
+        }
+
+        Node? popfirst_node = this.head;
+
+        System.Console.WriteLine($"[POPFIRST] ELEMENTO REMOVIDO [0] : {popfirst_node.Value}");
+
+        this.head = this.head.Next;
+        popfirst_node.Next = null;
+        this.lenght--;
+
+        if (this.lenght == 0)
+            this.tail = null;
+
+        return popfirst_node;
+    }
+
+    /// <summary>
+    /// Localizar elemento de acordo com índice informado pelo usuário
+    /// </summary>
+    /// <param name="index">Índice da posição do elemento buscado</param>
+    /// <returns>Nodo de índice informado pelo usuário</returns>
+    public Node? Get(int index)
+    {
+        if (!(index >= 0 && index < this.lenght))
+        {
+            System.Console.WriteLine("[GET] ÍNDICE INVÁLIDO");
+            return null;
+        }
+
+        Node? node_aux = this.head;
+
+        for (int i = 0; i < this.lenght; i++)
+        {
+            if (i == index)
+                break;
+        }
+
+        System.Console.WriteLine($"[GET] NODO ENCONTRADO [{index}] : {node_aux?.Value}");
+        return node_aux;
     }
 }
 
 public class Node
 {
-    public Node() => System.Console.WriteLine("Construindo Nodo");
+    public Node() => System.Console.WriteLine("[CONSTRUCTOR] CONSTRUINDO NODO");
 
     public Node(int value)
     {
@@ -68,5 +182,5 @@ public class Node
     }
 
     public int Value { get; set; }
-    public Node Next { get; set; }
+    public Node? Next { get; set; }
 }
