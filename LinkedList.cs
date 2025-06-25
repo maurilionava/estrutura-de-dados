@@ -164,6 +164,8 @@ public class LinkedList
         {
             if (i == index)
                 break;
+
+            node_aux = node_aux.Next;
         }
 
         System.Console.WriteLine($"[GET] NODO ENCONTRADO [{index}] : {node_aux?.Value}");
