@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/nava/Documents/repo/estrutura-de-dados/estrutura-de-dados.csproj": {}
+    "/home/nava/repo/estrutura-de-dados/estrutura-de-dados.csproj": {}
   },
   "projects": {
-    "/home/nava/Documents/repo/estrutura-de-dados/estrutura-de-dados.csproj": {
+    "/home/nava/repo/estrutura-de-dados/estrutura-de-dados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nava/Documents/repo/estrutura-de-dados/estrutura-de-dados.csproj",
+        "projectUniqueName": "/home/nava/repo/estrutura-de-dados/estrutura-de-dados.csproj",
         "projectName": "estrutura-de-dados",
-        "projectPath": "/home/nava/Documents/repo/estrutura-de-dados/estrutura-de-dados.csproj",
+        "projectPath": "/home/nava/repo/estrutura-de-dados/estrutura-de-dados.csproj",
         "packagesPath": "/home/nava/.nuget/packages/",
-        "outputPath": "/home/nava/Documents/repo/estrutura-de-dados/obj/",
+        "outputPath": "/home/nava/repo/estrutura-de-dados/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/nava/.nuget/NuGet/NuGet.Config"

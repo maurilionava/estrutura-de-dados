@@ -171,6 +171,95 @@ public class LinkedList
         System.Console.WriteLine($"[GET] NODO ENCONTRADO [{index}] : {node_aux?.Value}");
         return node_aux;
     }
+
+    /// <summary>
+    /// Alterar o valor de elemento conforme índice informado pelo usuário
+    /// </summary>
+    /// <param name="index">Índice do elemento na lista</param>
+    /// <param name="value">Valor para alteração do elemento na lista</param>
+    /// <returns>Tipo booleano se ret</returns>
+    public bool Set(int index, int value)
+    {
+        Node? node_result = Get(index);
+
+        if (node_result is null)
+        {
+            System.Console.WriteLine($"[SET] ÍNDICE NÃO ENCONTRADO [{index}]");
+            return false;
+        }
+
+        node_result.Value = value;
+        System.Console.WriteLine($"[SET] ELEMENTO ADICIONADO [{index}] : {value}");
+        return true;
+    }
+
+    // TODO: PROBLEMA NA LÓGICA
+    public bool Insert(int index, int value)
+    {
+        Node? node_aux = Get(index);
+        Node new_node = new(value);
+
+        if (this.lenght == 0 && index == 0)
+        {
+            this.head = new_node;
+            this.tail = new_node;
+        }
+        else if (node_aux is null)
+        {
+            System.Console.WriteLine($"[INSERT] ÍNDICE INVÁLIDO");
+            return false;
+        }
+        else
+        {
+            new_node.Next = node_aux;
+            node_aux.Next = new_node;
+        }
+
+        this.lenght++;
+        System.Console.WriteLine($"[INSERT] ELEMENTO INSERIDO COM SUCESSO [{index} : {value}]");
+        return true;
+    }
+
+    public Node? Remove(int index)
+    {
+        if (this.lenght == 0)
+        {
+            System.Console.WriteLine("[REMOVE] LISTA VAZIA");
+            return null;
+        }
+        else if (index < 0 || index >= this.lenght)
+        {
+            System.Console.WriteLine("[REMOVE] ÍNDICE INVÁLIDO");
+            return null;
+        }
+
+        Node? pre = this.head;
+        Node? temp = this.head;
+
+        if (this.lenght == 1)
+        {
+            this.head = null;
+            this.tail = null;
+        }
+
+        temp = this.head.Next;
+
+        for (var i = 0; i < this.lenght; i++)
+        {
+            if (index == i)
+            {
+                pre.Next = temp.Next;
+                temp.Next = null;
+            }
+
+            pre = temp;
+            temp = temp.Next;
+        }
+        
+        System.Console.WriteLine($"[REMOVE] ELEMENTO REMOVIDO [{index}] : {temp.Value}");
+        this.lenght--;
+        return temp;
+    }
 }
 
 public class Node
