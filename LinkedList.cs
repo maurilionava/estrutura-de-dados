@@ -227,38 +227,54 @@ public class LinkedList
             System.Console.WriteLine("[REMOVE] LISTA VAZIA");
             return null;
         }
-        else if (index < 0 || index >= this.lenght)
+        if (index < 0 || index >= this.lenght)
         {
             System.Console.WriteLine("[REMOVE] ÍNDICE INVÁLIDO");
             return null;
         }
-
-        Node? pre = this.head;
-        Node? temp = this.head;
-
-        if (this.lenght == 1)
+        if (index == 0)
         {
-            this.head = null;
-            this.tail = null;
+            return PopFirst();
+        }
+        if (index == this.lenght-1)
+        {
+            return Pop();
         }
 
-        temp = this.head.Next;
+        Node? prev = Get(index-1);
+        Node? temp = prev?.Next;
 
-        for (var i = 0; i < this.lenght; i++)
-        {
-            if (index == i)
-            {
-                pre.Next = temp.Next;
-                temp.Next = null;
-            }
+        prev.Next = temp.Next;
+        temp.Next = null;
 
-            pre = temp;
-            temp = temp.Next;
-        }
-        
         System.Console.WriteLine($"[REMOVE] ELEMENTO REMOVIDO [{index}] : {temp.Value}");
         this.lenght--;
         return temp;
+    }
+ 
+    public bool Reverse()
+    {
+        if (this.lenght == 1)
+        {
+            return true;
+        }
+
+        Node? temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+
+        Node? prev = null;
+        Node? next;
+
+        for (var i = 0; i < this.lenght; i++)
+        {
+            next = temp?.Next;
+            temp.Next = prev;
+            prev = temp;
+            temp = next;
+        }
+
+        return true;
     }
 }
 
